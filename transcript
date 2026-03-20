@@ -13,39 +13,47 @@
 # // of the Customer's facilities without the express written permission of SISW,
 # // and may not be used in any way not expressly authorized by SISW.
 # //
-# Project file C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf was not found.
-# Unable to open project.
 # Loading project ELE432_HW1
-# Compile of final_traffic_hw.sv was successful.
+# reading C:/altera/25.1std/questa_fse/win64/../modelsim.ini
+# Loading project ELE432_HW1
+# Compile of traffic_light_fsm.sv was successful.
+# Compile of tb_traffic_light.sv was successful.
+# 2 compiles, 0 failed with no errors.
 vsim -gui work.tb_traffic_light
 # ** Note: (vsim-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
 # vsim -gui work.tb_traffic_light 
-# Start time: 14:28:12 on Mar 18,2026
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
-# Loading sv_std.std
-# Loading work.tb_traffic_light(fast)
-quit -sim
-# End time: 14:31:02 on Mar 18,2026, Elapsed time: 0:02:50
-# Errors: 0, Warnings: 5
-vsim -gui work.traffic_light_fsm
-# ** Note: (vsim-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
-# vsim -gui work.traffic_light_fsm 
-# Start time: 14:31:53 on Mar 18,2026
-# ** Note: (vsim-3812) Design is being optimized...
-# ** Note: (vopt-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
-# Loading sv_std.std
-# Loading work.traffic_light_fsm(fast)
-quit -sim
-# End time: 14:47:22 on Mar 18,2026, Elapsed time: 0:15:29
-# Errors: 0, Warnings: 1
-# Load canceled
-# Compile of final_traffic_hw.sv was successful.
-# Optimization canceled
-vsim -gui work.tb_traffic_light
-# ** Note: (vsim-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
-# vsim -gui work.tb_traffic_light 
-# Start time: 14:51:44 on Mar 18,2026
+# Start time: 16:12:42 on Mar 20,2026
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # Loading sv_std.std
 # Loading work.tb_traffic_light(fast)
+# Error opening C:/Users/baris/AppData/Local/quartus/final_traffic_hw.sv
+# Path name 'C:/Users/baris/AppData/Local/quartus/final_traffic_hw.sv' doesn't exist.
+quit -sim
+vsim -voptargs="+acc" work.tb_traffic_light
+# End time: 16:15:42 on Mar 20,2026, Elapsed time: 0:03:00
+# Errors: 0, Warnings: 11
+# ** Note: (vsim-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
+# vsim -voptargs=""+acc"" work.tb_traffic_light 
+# Start time: 16:15:42 on Mar 20,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Note: (vopt-220) 'C:/Users/baris/AppData/Local/quartus/ELE432_HW1.mpf' is used as the ini file.
+# ** Note: (vopt-143) Recognized 1 FSM in module "traffic_light_fsm(fast)".
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.tb_traffic_light(fast)
+# Loading work.traffic_light_fsm(fast)
+add wave -recursive *
+run
+run
+# Causality operation skipped due to absence of debug database file
+git add traffic_light_fsm.sv tb_traffic_light.sv
+git commit -m "ELE432 HW1: FSM and Testbench"
+# [master 7a0520c] ELE432 HW1: FSM and Testbench
+#  2 files changed, 2 insertions(+)
+#  create mode 100644 tb_traffic_light.sv
+#  create mode 100644 traffic_light_fsm.sv
+git push origin main
+# error: src refspec main does not match any
+# error: failed to push some refs to 'https://github.com/kordyler/Traffic-Light-FSM.git'
+git branch -m master main
